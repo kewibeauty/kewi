@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>可唯美學｜聖誕佳節送溫暖</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #F8F3F0;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 420px;
+            aspect-ratio: 4 / 5;
+            background: white;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            border-radius: 2rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 6px solid #fff;
+        }
+
+        .watercolor-bg {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.7;
+            background: 
+                radial-gradient(circle at top right, #FFE4E6 0%, transparent 60%),
+                radial-gradient(circle at bottom left, #DCFCE7 0%, transparent 60%);
+        }
+
+        /* 震動特效 */
+        @keyframes item-shake {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(-5deg) scale(1.05); }
+            75% { transform: rotate(5deg) scale(1.05); }
+        }
+
+        .item-shaking {
+            animation: item-shake 0.15s ease-in-out infinite;
+        }
+
+        /* 兩種爆開特效 */
+        .burst-overlay {
+            position: absolute;
+            pointer-events: none;
+            display: none;
+            z-index: 50;
+            border-radius: 50%;
+        }
+
+        /* 裝飾球爆裂：彩色閃爍 */
+        @keyframes ball-burst {
+            0% { transform: scale(0.1); opacity: 1; box-shadow: 0 0 0 0 #FFD1DC, 0 0 0 0 #BEE3F8; }
+            50% { opacity: 0.8; box-shadow: 0 0 30px 20px #FFD1DC, 0 0 50px 30px #BEE3F8; }
+            100% { transform: scale(2.5); opacity: 0; }
+        }
+
+        /* 禮物盒爆裂：金光噴發 */
+        @keyframes gift-burst {
+            0% { transform: scale(0.1) rotate(0); opacity: 1; filter: brightness(1); }
+            50% { transform: scale(1.8) rotate(180deg); opacity: 1; filter: brightness(2); }
+            100% { transform: scale(4); opacity: 0; filter: brightness(1); }
+        }
+
+        .burst-ball { animation: ball-burst 0.5s ease-out forwards; display: block; background: white; }
+        .burst-gift { animation: gift-burst 0.6s cubic-bezier(0.17, 0.89, 0.32, 1.49) forwards; display: block; background: radial-gradient(circle, #FFF9C4 0%, #FFD54F 100%); }
+
+        .prize-card {
+            animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.8) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: snow-fall linear infinite;
+        }
+
+        @keyframes snow-fall {
+            to { transform: translateY(600px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app" class="app-container">
+        <div class="watercolor-bg"></div>
+        <div id="snow-field" class="absolute inset-0 pointer-events-none"></div>
+        <div id="burst" class="burst-overlay"></div>
+
+        <div id="main-content" class="relative z-10 flex-1 flex flex-col p-6 text-center overflow-hidden">
+            <!-- 內容由 JS 渲染 -->
+        </div>
+
+        <footer class="relative z-20 bg-white/80 backdrop-blur-sm border-t border-stone-100 py-3 px-4 text-center shrink-0">
+            <p class="text-[12px] font-bold text-stone-600 mb-0.5 flex items-center justify-center gap-1 leading-none">
+                <span class="text-rose-400">📍</span> 台中市大里區至善路 32 號 (2F)
+            </p>
+            <p class="text-[9px] text-stone-400 tracking-[0.4em] font-black uppercase leading-none">可唯美學 KEWI BEAUTY</p>
+        </footer>
+    </div>
+
+    <script>
+        const prizes = [
+            { id: 1, name: "頭獎：健胸激實霜 (乙罐)", desc: "頂級賦活，極致緊實", bg: "bg-rose-50", color: "text-rose-600", weight: 1 },
+            { id: 2, name: "二獎：美胸賦活乳霜 (乙條)", desc: "彈潤滋養，柔嫩呵護", bg: "bg-pink-50", color: "text-pink-600", weight: 2 },
+            { id: 3, name: "三獎：按摩精油 (乙罐)", desc: "芳療舒壓，身心平衡", bg: "bg-amber-50", color: "text-amber-600", weight: 3 },
+            { id: 4, name: "5折 驚喜優惠", desc: "聖誕奇蹟，半價寵愛", bg: "bg-purple-50", color: "text-purple-600", weight: 1 },
+            { id: 9, name: "9折 優惠券", desc: "小確幸折扣，立即使用", bg: "bg-teal-50", color: "text-teal-600", weight: 25 },
+            { id: 10, name: "95折 優惠券", desc: "體驗折扣，輕鬆入手", bg: "bg-teal-50", color: "text-teal-600", weight: 30 },
+            { id: 11, name: "熱敷眼罩 (乙片)", desc: "舒緩眼壓，暖暖入睡", bg: "bg-orange-50", color: "text-orange-600", weight: 35 },
+            { id: 12, name: "熱敷貼 (乙片)", desc: "暖宮暖身，隨身呵護", bg: "bg-orange-50", color: "text-orange-600", weight: 35 },
+            { id: 13, name: "甜蜜糖果罐", desc: "金沙/糖果，甜在心頭", bg: "bg-orange-50", color: "text-orange-600", weight: 35 }
+        ];
+
+        let state = 'start';
+        let wonPrize = null;
+
+        function handlePick(e, type) {
+            const burst = document.getElementById('burst');
+            const rect = e.target.getBoundingClientRect();
+            const appRect = document.getElementById('app').getBoundingClientRect();
+            
+            burst.style.left = (rect.left - appRect.left + rect.width/2 - 40) + 'px';
+            burst.style.top = (rect.top - appRect.top + rect.height/2 - 40) + 'px';
+            burst.style.width = '80px';
+            burst.style.height = '80px';
+
+            e.target.classList.add('item-shaking');
+            
+            setTimeout(() => {
+                burst.className = `burst-overlay ${type === 'ball' ? 'burst-ball' : 'burst-gift'}`;
+                e.target.style.opacity = '0';
+                
+                // 權重隨機
+                const total = prizes.reduce((sum, p) => sum + p.weight, 0);
+                let rand = Math.random() * total;
+                wonPrize = prizes.find(p => (rand -= p.weight) <= 0) || prizes[prizes.length-1];
+                
+                setTimeout(() => {
+                    state = 'result';
+                    render();
+                    burst.className = 'burst-overlay';
+                }, 350);
+            }, 600);
+        }
+
+        function render() {
+            const content = document.getElementById('main-content');
+            
+            if (state === 'start') {
+                content.innerHTML = `
+                    <div class="flex-1 flex flex-col items-center justify-center space-y-6 animate-fadeIn">
+                        <div class="space-y-1">
+                            <span class="text-rose-400 font-bold tracking-[0.4em] text-[10px] block uppercase">Warmest Wishes</span>
+                            <h1 class="text-3xl font-black text-stone-800 tracking-tight">聖誕佳節送溫暖</h1>
+                        </div>
+                        <div class="w-24 h-24 bg-rose-50 rounded-full flex items-center justify-center border-2 border-white shadow-lg text-5xl">🎄</div>
+                        <div class="space-y-3 px-4 text-center">
+                            <p class="text-xl font-bold text-stone-700 underline decoration-rose-200 decoration-2 underline-offset-4">哈囉～我是小萱。</p>
+                            <p class="text-base text-stone-600 leading-relaxed font-bold">
+                                我在聖誕樹上掛了好多禮物，<br>選一個妳最喜歡的領取吧！
+                            </p>
+                        </div>
+                        <button onclick="state='play';render();" class="px-10 py-3 bg-rose-400 text-white rounded-full text-lg font-black shadow-lg active:scale-95 transition-all">
+                            頭獎非我莫屬！ ✨
+                        </button>
+                    </div>
+                `;
+            } else if (state === 'play') {
+                content.innerHTML = `
+                    <div class="flex-1 flex flex-col items-center justify-center animate-fadeIn">
+                        <div class="mb-4">
+                            <h2 class="text-lg font-black text-stone-700 underline decoration-rose-200 underline-offset-8">點擊裝飾球或禮物盒</h2>
+                        </div>
+
+                        <div class="relative w-64 h-72 flex flex-col items-center justify-end pb-4">
+                            <svg viewBox="0 0 200 260" class="w-full h-full drop-shadow-md overflow-visible">
+                                <!-- 樹幹 -->
+                                <rect x="88" y="215" width="24" height="40" fill="#5D4037" />
+                                <!-- 聖誕樹層級 -->
+                                <path d="M100 25 L65 85 Q100 70 135 85 Z" fill="#2D5A27" />
+                                <path d="M100 70 L50 155 Q100 135 150 155 Z" fill="#244D1F" />
+                                <path d="M100 140 L35 225 Q100 205 165 225 Z" fill="#1B3A18" />
+                                <!-- 聖誕彩帶 -->
+                                <path d="M70 70 Q100 90 130 75" fill="none" stroke="#FFD700" stroke-width="2" opacity="0.6" />
+                                <path d="M55 130 Q100 160 145 135" fill="none" stroke="#FFD700" stroke-width="2" opacity="0.6" />
+                                <path d="M40 200 Q100 230 160 205" fill="none" stroke="#FFD700" stroke-width="2" opacity="0.6" />
+                                <!-- 樹頂大星星 -->
+                                <polygon points="100,5 105,20 120,20 108,30 113,45 100,35 87,45 92,30 80,20 95,20" fill="#FFD700" stroke="#F59E0B" stroke-width="1" />
+                            </svg>
+
+                            <div class="absolute inset-0">
+                                <!-- 裝飾球位置向右偏移調整 -->
+                                <button onclick="handlePick(event, 'ball')" class="absolute top-[48px] left-[95px] text-2xl hover:scale-125 transition-transform">🔴</button>
+                                <button onclick="handlePick(event, 'ball')" class="absolute top-[105px] left-[85px] text-2xl hover:scale-125 transition-transform">🟡</button>
+                                <button onclick="handlePick(event, 'ball')" class="absolute top-[115px] left-[135px] text-2xl hover:scale-125 transition-transform">🔵</button>
+                                <button onclick="handlePick(event, 'ball')" class="absolute top-[180px] left-[70px] text-2xl hover:scale-125 transition-transform">🟣</button>
+                                <button onclick="handlePick(event, 'ball')" class="absolute top-[170px] left-[145px] text-2xl hover:scale-125 transition-transform">🟠</button>
+                            </div>
+
+                            <div class="absolute -bottom-2 flex gap-2 items-end">
+                                <button onclick="handlePick(event, 'gift')" class="text-5xl hover:scale-110 transition-transform">🎁</button>
+                                <button onclick="handlePick(event, 'gift')" class="text-6xl hover:scale-110 transition-transform">💝</button>
+                                <button onclick="handlePick(event, 'gift')" class="text-5xl hover:scale-110 transition-transform">🧧</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (state === 'result') {
+                const msg = `哈囉小萱～我剛剛在店裡抽中了聖誕小禮：【${wonPrize.name}】，想跟妳領取兌換，謝謝！`;
+                content.innerHTML = `
+                    <div class="prize-card flex-1 flex flex-col items-center justify-center space-y-3">
+                        <h2 class="text-xl font-black text-stone-800">恭喜獲得聖誕驚喜！</h2>
+                        <div class="${wonPrize.bg} p-5 rounded-[1.5rem] border-2 border-white shadow-lg w-full space-y-3">
+                            <p class="text-base text-stone-700 font-bold leading-tight">
+                                親愛的朋友，謝謝妳來到可唯美學！<br>
+                                這是一份屬於妳的小小心意：
+                            </p>
+                            <div class="py-3 border-y border-white/40 text-center">
+                                <div class="text-[9px] font-black text-stone-400 tracking-widest uppercase mb-1">幸運獲得</div>
+                                <div class="text-xl font-black ${wonPrize.color} bg-white/40 px-3 py-1 rounded-lg inline-block mb-1">${wonPrize.name}</div>
+                                <div class="text-stone-500 font-bold text-sm leading-tight">「 ${wonPrize.desc} 」</div>
+                            </div>
+                            <div class="bg-white/30 p-2.5 rounded-lg text-left border border-white/50">
+                                <p class="text-[11px] text-stone-600 leading-normal font-bold">
+                                    <span class="text-rose-500 underline decoration-1 underline-offset-2">🎄 兌換領取限制：</span><br>
+                                    本活動限「現場來店」抽獎領取，<span class="text-stone-800 underline">出示此畫面兌換</span>。截圖或轉傳無效喔！
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-full space-y-2 flex flex-col items-center">
+                            <a href="https://line.me/R/oaMessage/@kewibeauty/?${encodeURIComponent(msg)}" target="_blank" class="w-10/12 py-3 bg-[#06C755] text-white rounded-xl font-black text-lg shadow-lg flex items-center justify-center gap-2 no-underline animate-bounce">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 10.3c0-5.7-5.4-10.3-12-10.3s-12 4.6-12 10.3c0 5.1 4.3 9.3 10.1 10.1.4 0 .9.3 1.1.7l.4 1.7c.1.5.5.6.8.4l2.1-1.4c1.8-1.2 3.6-2.5 5.1-4.2 2.8-3.1 4.4-4.8 4.4-7.3z"/></svg>
+                                <span>出示畫面並點擊兌獎</span>
+                            </a>
+                            <button onclick="location.reload()" class="text-stone-400 text-xs font-bold hover:text-stone-600 py-1">重新尋寶 ↻</button>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function createSnow() {
+            const field = document.getElementById('snow-field');
+            for (let i = 0; i < 35; i++) { // 雪花數量增加
+                const s = document.createElement('div');
+                s.className = 'snowflake';
+                s.style.left = Math.random() * 100 + '%';
+                s.style.width = s.style.height = (Math.random() * 4 + 4) + 'px'; // 雪花稍大一點
+                s.style.opacity = Math.random() * 0.6 + 0.3; // 不透明度增加
+                s.style.animationDuration = (Math.random() * 4 + 3) + 's';
+                s.style.animationDelay = Math.random() * 5 + 's';
+                field.appendChild(s);
+            }
+        }
+
+        window.onload = () => { render(); createSnow(); };
+    </script>
+</body>
+</html>
