@@ -1,0 +1,1310 @@
+<!doctype html>
+<html lang="zh-TW" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kewi Beauty 可唯美學 - 2026 新春開運優惠</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+      background: #FFF5F5;
+      color: #2C2C2C;
+      line-height: 1.7;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    .main-wrapper {
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    /* 新年裝飾 - 紅燈籠 */
+    .lantern {
+      position: fixed;
+      width: 60px;
+      height: 80px;
+      z-index: 100;
+      animation: swing 3s ease-in-out infinite;
+    }
+
+    .lantern-left {
+      top: 80px;
+      left: 20px;
+    }
+
+    .lantern-right {
+      top: 80px;
+      right: 20px;
+      animation-delay: 1.5s;
+    }
+
+    .lantern-body {
+      width: 60px;
+      height: 70px;
+      background: linear-gradient(to right, #E63946, #F28482);
+      border-radius: 50% 50% 45% 45%;
+      position: relative;
+      box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
+    }
+
+    .lantern-body::before {
+      content: '春';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #FFD700;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .lantern-right .lantern-body::before {
+      content: '福';
+    }
+
+    .lantern-top {
+      width: 50px;
+      height: 10px;
+      background: #8B0000;
+      border-radius: 50%;
+      margin: 0 auto 5px;
+    }
+
+    .lantern-tassel {
+      width: 2px;
+      height: 20px;
+      background: #FFD700;
+      margin: 0 auto;
+    }
+
+    .lantern-tassel-end {
+      width: 15px;
+      height: 15px;
+      background: #FFD700;
+      border-radius: 50%;
+      margin: 0 auto;
+    }
+
+    @keyframes swing {
+      0%, 100% { transform: rotate(-8deg); }
+      50% { transform: rotate(8deg); }
+    }
+
+    /* 飄落紅包動畫 */
+    .red-envelope {
+      position: fixed;
+      font-size: 35px;
+      z-index: 99;
+      animation: fall linear infinite;
+      opacity: 0.7;
+    }
+
+    .envelope1 { left: 15%; animation-duration: 8s; animation-delay: 0s; }
+    .envelope2 { left: 35%; animation-duration: 10s; animation-delay: 2s; }
+    .envelope3 { left: 55%; animation-duration: 9s; animation-delay: 4s; }
+    .envelope4 { left: 75%; animation-duration: 11s; animation-delay: 1s; }
+    .envelope5 { left: 85%; animation-duration: 7s; animation-delay: 3s; }
+
+    @keyframes fall {
+      0% { top: -100px; transform: rotate(0deg); }
+      100% { top: 100%; transform: rotate(360deg); }
+    }
+
+    /* Header Section */
+    .header {
+      background: linear-gradient(135deg, #FFD6E0 0%, #FFE4EC 100%);
+      padding: 80px 20px 60px;
+      text-align: center;
+      color: #2C2C2C;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
+      animation: glow 4s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(20px, 20px); }
+    }
+
+    .header-decorations {
+      position: absolute;
+      top: 20px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-around;
+      font-size: 40px;
+      opacity: 0.3;
+    }
+
+    .main-title {
+      font-size: 48px;
+      font-weight: 700;
+      margin: 0 0 20px 0;
+      letter-spacing: 5px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 1;
+      color: #E63946;
+    }
+
+    .subtitle {
+      font-size: 28px;
+      margin: 0 0 25px 0;
+      font-weight: 600;
+      letter-spacing: 3px;
+      color: #D62828;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tagline {
+      font-size: 17px;
+      font-style: italic;
+      margin: 20px 0 10px 0;
+      position: relative;
+      z-index: 1;
+      color: #666;
+    }
+
+    .header-details {
+      font-size: 14px;
+      margin-top: 20px;
+      position: relative;
+      z-index: 1;
+      color: #666;
+    }
+
+    /* About Section */
+    .about {
+      background: white;
+      padding: 50px 25px;
+      text-align: center;
+      border-bottom: 3px solid #FFE4E1;
+      position: relative;
+    }
+
+    .about::before {
+      content: '🌸';
+      position: absolute;
+      top: 15px;
+      left: 30px;
+      font-size: 50px;
+      opacity: 0.15;
+    }
+
+    .about::after {
+      content: '🌸';
+      position: absolute;
+      bottom: 15px;
+      right: 30px;
+      font-size: 50px;
+      opacity: 0.15;
+    }
+
+    .about-text {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 2;
+      color: #555;
+    }
+
+    /* Menu Sections */
+    .menu-section {
+      padding: 60px 25px;
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      position: relative;
+    }
+
+    .menu-section:nth-child(odd) {
+      background: #FFFAFA;
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #E63946;
+      margin: 0 0 15px 0;
+      text-align: center;
+      text-shadow: none;
+    }
+
+    .section-description {
+      text-align: center;
+      font-size: 16px;
+      color: #666;
+      margin: 0 0 40px 0;
+      line-height: 1.8;
+    }
+
+    .menu-items {
+      display: grid;
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .menu-item {
+      background: #FFFFFF;
+      border: 2px solid #FFE4E1;
+      border-radius: 16px;
+      padding: 30px;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 12px rgba(230, 57, 70, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-item:hover {
+      border-color: #F28482;
+      box-shadow: 0 4px 20px rgba(230, 57, 70, 0.15);
+      transform: translateY(-3px);
+    }
+
+    .item-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: #2C2C2C;
+      margin: 0 0 8px 0;
+    }
+
+    .item-target {
+      font-size: 13px;
+      color: #E63946;
+      margin: 0 0 20px 0;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #FFF0F0;
+      font-weight: 500;
+    }
+
+    .item-subtitle {
+      font-size: 16px;
+      font-weight: 700;
+      color: #E63946;
+      margin: 15px 0 8px 0;
+    }
+
+    .item-description {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.8;
+      margin: 8px 0 0 0;
+    }
+
+    .bonus-tag {
+      background: #FFF5F5;
+      border-left: 4px solid #F28482;
+      padding: 12px 15px;
+      margin-top: 15px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #D62828;
+      font-weight: 600;
+    }
+
+    .price-showcase {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .price-card-main {
+      background: linear-gradient(135deg, #E63946, #F28482);
+      padding: 25px 20px;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(230, 57, 70, 0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .price-card-label {
+      color: #FFD700;
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    .price-card-value {
+      font-size: 48px;
+      font-weight: 900;
+      color: #FFF9E6;
+      text-shadow: 3px 3px 8px rgba(0,0,0,0.6);
+      position: relative;
+      display: inline-block;
+    }
+
+    .price-card-value::after {
+      content: '✨';
+      position: absolute;
+      right: -30px;
+      top: 0;
+      font-size: 24px;
+    }
+
+    .price-original-text {
+      font-size: 13px;
+      color: #999;
+      text-align: center;
+      margin: 0;
+    }
+
+    .price-original-text .original-price {
+      text-decoration: line-through;
+      color: #AAA;
+      font-weight: 500;
+      margin-left: 5px;
+    }
+
+    /* Special Full Package Section */
+    .full-package {
+      background: linear-gradient(135deg, #FFD6E0 0%, #FFE4EC 100%);
+      padding: 60px 25px;
+      color: #2C2C2C;
+    }
+
+    .full-package .section-title {
+      color: #E63946;
+      font-size: 36px;
+    }
+
+    .full-package .section-description {
+      color: #666;
+    }
+
+    .full-package .menu-item {
+      background: rgba(255,255,255,0.98);
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    /* Add-on Section */
+    .addon-section {
+      background: linear-gradient(135deg, #FFF5F5, #FFE4E1);
+      padding: 45px 30px;
+      text-align: center;
+      border: 3px solid #F28482;
+      margin: 40px 25px;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(230, 57, 70, 0.12);
+    }
+
+    .addon-title {
+      font-size: 26px;
+      color: #E63946;
+      margin: 0 0 15px 0;
+      font-weight: 700;
+    }
+
+    .addon-text {
+      font-size: 24px;
+      color: #D62828;
+      margin: 10px 0;
+      font-weight: 700;
+    }
+
+    .addon-note {
+      font-size: 15px;
+      color: #666;
+      margin: 10px 0 0 0;
+      font-style: italic;
+    }
+
+    /* Upgrade Section */
+    .upgrade-section {
+      background: white;
+      padding: 60px 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .upgrade-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #E63946;
+      text-align: center;
+      margin: 0 0 20px 0;
+    }
+
+    .upgrade-intro {
+      text-align: center;
+      font-size: 16px;
+      color: #666;
+      margin: 0 0 50px 0;
+      line-height: 1.8;
+    }
+
+    .upgrade-category {
+      margin-bottom: 50px;
+    }
+
+    .category-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #E63946;
+      margin: 0 0 25px 0;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #FFE4E1;
+    }
+
+    .upgrade-table-wrapper {
+      overflow-x: auto;
+      margin-bottom: 30px;
+    }
+
+    .upgrade-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .upgrade-table thead {
+      background: linear-gradient(135deg, #E63946, #F28482);
+      color: white;
+    }
+
+    .upgrade-table th {
+      padding: 18px 15px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .upgrade-table .th-sub {
+      font-size: 12px;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    .upgrade-table tbody tr {
+      border-bottom: 1px solid #FFE4E1;
+      transition: background 0.3s ease;
+    }
+
+    .upgrade-table tbody tr:hover {
+      background: #FFF5F5;
+    }
+
+    .upgrade-table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .upgrade-table td {
+      padding: 18px 15px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .upgrade-table .item-name-col {
+      font-weight: 600;
+      color: #2C2C2C;
+    }
+
+    .upgrade-table .price-col {
+      font-weight: 700;
+      color: #E63946;
+      white-space: nowrap;
+    }
+
+    .upgrade-table .free-price {
+      color: #28A745;
+    }
+
+    .upgrade-table .upgrade-price {
+      color: #FF6B35;
+    }
+
+    .upgrade-table .price-tag {
+      font-size: 11px;
+      font-weight: 500;
+      opacity: 0.8;
+      display: block;
+      margin-top: 3px;
+    }
+
+    .example-section {
+      background: linear-gradient(135deg, #FFF5F5, #FFE4E1);
+      padding: 40px 30px;
+      border-radius: 16px;
+      margin-top: 40px;
+    }
+
+    .example-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #E63946;
+      margin: 0 0 25px 0;
+      text-align: center;
+    }
+
+    .example-cards {
+      display: grid;
+      gap: 20px;
+    }
+
+    .example-card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      border-left: 4px solid #F28482;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .example-label {
+      font-size: 18px;
+      font-weight: 700;
+      color: #E63946;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #FFE4E1;
+    }
+
+    .example-content {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .example-step {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.8;
+      margin: 0;
+      padding-left: 10px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .example-step strong {
+      color: #2C2C2C;
+      font-weight: 600;
+      flex-shrink: 0;
+      min-width: 70px;
+    }
+
+    .example-step span {
+      flex: 1;
+    }
+
+    .example-result {
+      margin-top: 8px;
+      padding: 12px 15px;
+      background: linear-gradient(135deg, #FFF5F5, #FFE4E1);
+      border-radius: 8px;
+      font-size: 15px;
+      color: #E63946;
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .example-result strong {
+      font-size: 18px;
+      color: #D62828;
+    }
+
+    /* CTA Buttons */
+    .cta-section {
+      padding: 60px 25px;
+      text-align: center;
+      background: white;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #E63946, #D62828);
+      color: white;
+      padding: 22px 50px;
+      font-size: 22px;
+      font-weight: 700;
+      border-radius: 50px;
+      text-decoration: none;
+      margin: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(230, 57, 70, 0.3);
+    }
+
+    .cta-button:hover {
+      background: linear-gradient(135deg, #D62828, #C1121F);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(230, 57, 70, 0.4);
+    }
+
+    .social-links {
+      margin-top: 35px;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      display: inline-block;
+      background: white;
+      color: #E63946;
+      padding: 14px 30px;
+      font-size: 15px;
+      border-radius: 30px;
+      text-decoration: none;
+      border: 2px solid #E63946;
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+
+    .social-link:hover {
+      background: #E63946;
+      color: white;
+    }
+
+    /* Footer */
+    .footer {
+      background: #2C2C2C;
+      color: white;
+      padding: 45px 25px;
+      text-align: center;
+    }
+
+    .footer-notice {
+      font-size: 14px;
+      line-height: 1.9;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Responsive */
+    @media (min-width: 768px) {
+      .menu-items {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .lantern {
+        width: 80px;
+        height: 100px;
+      }
+      
+      .lantern-body {
+        width: 80px;
+        height: 90px;
+      }
+      
+      .lantern-body::before {
+        font-size: 36px;
+      }
+
+      .example-cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 767px) {
+      .lantern {
+        width: 50px;
+        height: 70px;
+      }
+      
+      .lantern-body {
+        width: 50px;
+        height: 60px;
+      }
+      
+      .lantern-body::before {
+        font-size: 24px;
+      }
+      
+      .red-envelope {
+        font-size: 25px;
+      }
+
+      .upgrade-table {
+        font-size: 13px;
+      }
+      
+      .upgrade-table th,
+      .upgrade-table td {
+        padding: 12px 8px;
+      }
+      
+      .upgrade-title {
+        font-size: 24px;
+      }
+      
+      .category-title {
+        font-size: 20px;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div class="main-wrapper"><!-- 紅燈籠裝飾 -->
+   <div class="lantern lantern-left">
+    <div class="lantern-top"></div>
+    <div class="lantern-body"></div>
+    <div class="lantern-tassel"></div>
+    <div class="lantern-tassel-end"></div>
+   </div>
+   <div class="lantern lantern-right">
+    <div class="lantern-top"></div>
+    <div class="lantern-body"></div>
+    <div class="lantern-tassel"></div>
+    <div class="lantern-tassel-end"></div>
+   </div><!-- 飄落紅包 -->
+   <div class="red-envelope envelope1">
+    🧧
+   </div>
+   <div class="red-envelope envelope2">
+    💰
+   </div>
+   <div class="red-envelope envelope3">
+    🧧
+   </div>
+   <div class="red-envelope envelope4">
+    💰
+   </div>
+   <div class="red-envelope envelope5">
+    🧧
+   </div><!-- Header -->
+   <header class="header">
+    <div class="header-decorations"><span>🎊</span> <span>🎆</span> <span>🎉</span>
+    </div>
+    <h1 class="main-title" id="main-title">可唯美學</h1>
+    <h2 class="subtitle" id="subtitle">2026 新春開運・限定優惠</h2>
+    <p class="tagline" id="tagline">新的一年,把運氣與福氣都揉進身體裡。</p>
+    <p class="header-details">🕐 預約制・1 對 1 專人服務 👭 女性專屬空間</p>
+   </header><!-- About Section -->
+   <section class="about">
+    <p class="about-text" id="about-text">專注於妳的身體訊號,提供最精準的客製化調理。<br>
+     在這裡,不只是按摩,是讓身心重新開機的儀式。</p>
+   </section><!-- 60 Min Menu -->
+   <section class="menu-section">
+    <h2 class="section-title">⚡️ 60 min 局部精準呵護</h2>
+    <p class="section-description">針對單點痛點強化,適合忙碌中想小小喘息的妳。</p>
+    <div class="menu-items">
+     <div class="menu-item">
+      <h3 class="item-name">A. 植萃舒壓 (身心放鬆)</h3>
+      <p class="item-target">針對:淺眠、肩頸僵硬、壓力大</p>
+      <div class="price-showcase">
+       <div class="price-card-main">
+        <div class="price-card-label">
+         🎊 新春開運價
+        </div>
+        <div class="price-card-value">
+         $688
+        </div>
+       </div>
+       <p class="price-original-text">單堂原價 <span class="original-price">$1,200</span></p>
+      </div>
+      <p class="item-description">內容:手技+專業工具組</p>
+     </div>
+     <div class="menu-item">
+      <h3 class="item-name">B. 溫罐排濕 (活絡循環)</h3>
+      <p class="item-target">針對:體內濕氣重、循環差</p>
+      <div class="price-showcase">
+       <div class="price-card-main">
+        <div class="price-card-label">
+         🎊 新春開運價
+        </div>
+        <div class="price-card-value">
+         $788
+        </div>
+       </div>
+       <p class="price-original-text">單堂原價 <span class="original-price">$1,300</span></p>
+      </div>
+      <p class="item-description">內容:無煙科技溫罐(宙元石遠紅外線撥筋熱導儀)</p>
+     </div>
+     <div class="menu-item">
+      <h3 class="item-name">C. 美型雕塑 (線條管理)</h3>
+      <p class="item-target">針對:局部肉肉困擾、線條不順、橘皮</p>
+      <div class="price-showcase">
+       <div class="price-card-main">
+        <div class="price-card-label">
+         🎊 新春開運價
+        </div>
+        <div class="price-card-value">
+         $888
+        </div>
+       </div>
+       <p class="price-original-text">單堂原價 <span class="original-price">$1,400</span></p>
+      </div>
+      <p class="item-description">內容:美體儀</p>
+     </div>
+     <div class="menu-item">
+      <h3 class="item-name">D. 機能暖養 (女子專屬)</h3>
+      <p class="item-target">針對:產後保養、婦科暖養、胸部彈潤</p>
+      <div class="price-showcase">
+       <div class="price-card-main">
+        <div class="price-card-label">
+         🎊 新春開運價
+        </div>
+        <div class="price-card-value">
+         $988
+        </div>
+       </div>
+       <p class="price-original-text">單堂原價 <span class="original-price">$1,500</span></p>
+      </div>
+      <p class="item-description">內容:美胸律動儀 或 暖宮溫罐 (二選一)</p>
+     </div>
+    </div>
+   </section><!-- 120 Min Full Package -->
+   <section class="menu-section full-package">
+    <h2 class="section-title">🎁 120 min 奢華限定套餐</h2>
+    <p class="section-description">核心主課 90min ＋ 複合加贈 30min。<br>
+     新春最澎湃的「大掃除」儀式！</p>
+    <div class="menu-items">
+     <div class="menu-item">
+      <h3 class="item-name">A. 植萃舒壓 套餐</h3>
+      <div class="price-showcase">
+       <div class="price-card-main">
+        <div class="price-card-label">
+         🎊 新春開運價
+        </div>
+        <div class="price-card-value">
+         $1,288
+        </div>
+       </div>
+       <p class="price-original-text">單堂原價 <span class="original-price">$2,200</span></p>
+      </div>
+      <p class="item-subtitle">【手技紓壓】</p>
+      <p class="item-description">全身經絡油壓(無胸腹) + 臉部撥筋</p>
+      <div class="bonus-tag">
+       ★ 加贈:舒眠耳燭 + 暖芯熱墊
+      </div>
+     </div>
+     <div class="menu-item">
+      <h3 class="item-name">B. 溫罐排濕 套餐</h3>
+      <div class="price-showcase">
+       <div class="price-card-main">
+        <div class="price-card-label">
+         🎊 新春開運價
+        </div>
+        <div class="price-card-value">
+         $1,488
+        </div>
+       </div>
+       <p class="price-original-text">單堂原價 <span class="original-price">$2,400</span></p>
+      </div>
+      <p class="item-subtitle">【溫熱代謝】</p>
+      <p class="item-description">全身溫罐走罐(無胸腹) + 手技加強</p>
+      <div class="bonus-tag">
+       ★ 加贈:能量熱石 + 暖身熱袋
+      </div>
+     </div>
+     <div class="menu-item">
+      <h3 class="item-name">C. 美型雕塑 套餐</h3>
+      <div class="price-showcase">
+       <div class="price-card-main">
+        <div class="price-card-label">
+         🎊 新春開運價
+        </div>
+        <div class="price-card-value">
+         $1,688
+        </div>
+       </div>
+       <p class="price-original-text">單堂原價 <span class="original-price">$2,600</span></p>
+      </div>
+      <p class="item-subtitle">【S級線條管理】</p>
+      <p class="item-description">美體儀 + 體刷加強</p>
+      <div class="bonus-tag">
+       ★ 加贈:去角質 + 磁叉排酸
+      </div>
+     </div>
+     <div class="menu-item">
+      <h3 class="item-name">D. 機能暖養 套餐</h3>
+      <div class="price-showcase">
+       <div class="price-card-main">
+        <div class="price-card-label">
+         🎊 新春開運價
+        </div>
+        <div class="price-card-value">
+         $1,888
+        </div>
+       </div>
+       <p class="price-original-text">單堂原價 <span class="original-price">$2,800</span></p>
+      </div>
+      <p class="item-subtitle">【女神內在呵護】</p>
+      <p class="item-description">美胸暖宮專業手法+ 溫罐調理</p>
+      <div class="bonus-tag">
+       ★ 加贈:美胸儀 + 順暢臍燭
+      </div>
+     </div>
+    </div>
+   </section><!-- Add-on Section -->
+   <div class="addon-section">
+    <h3 class="addon-title">🔥 新春升級:爆汗排濕遠紅外線太空艙 (30min)</h3>
+    <p class="addon-text">課程加購價 +$300 (原價 $600)</p>
+    <p class="addon-note">適合搭配任一課程,讓代謝感更加倍!</p>
+   </div><!-- Custom Upgrade Section -->
+   <section class="upgrade-section">
+    <h2 class="upgrade-title">✨ 客製化升級專區</h2>
+    <p class="upgrade-intro">讓您的保養體驗更臻完美。以下項目適用於搭配主課程「加購」,或於120分鐘套餐中「換購」原定贈品。</p><!-- 精緻保養系列 -->
+    <div class="upgrade-category">
+     <h3 class="category-title">🌸 精緻保養系列（溫和調理・細節呵護）</h3>
+     <div class="upgrade-table-wrapper">
+      <table class="upgrade-table">
+       <thead>
+        <tr>
+         <th>項目名稱</th>
+         <th>適合對象</th>
+         <th>建議加購價<br><span class="th-sub">(搭配主課程)</span></th>
+         <th>建議換購價<br><span class="th-sub">(替換套餐贈品)</span></th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td class="item-name-col">絲滑煥膚・去角質 (2部位)</td>
+         <td>肌膚粗糙、暗沉者</td>
+         <td class="price-col">+$350</td>
+         <td class="price-col upgrade-price">+$100 <span class="price-tag">(升級換購)</span></td>
+        </tr>
+        <tr>
+         <td class="item-name-col">排濕代謝・溫熱導膜 (1部位)</td>
+         <td>濕氣重、代謝差</td>
+         <td class="price-col">+$400</td>
+         <td class="price-col upgrade-price">+$150 <span class="price-tag">(升級換購)</span></td>
+        </tr>
+        <tr>
+         <td class="item-name-col">溫感深入・暖芯熱墊</td>
+         <td>寒性體質、畏寒</td>
+         <td class="price-col">+$250</td>
+         <td class="price-col free-price">$0 <span class="price-tag">(免費換選)</span></td>
+        </tr>
+        <tr>
+         <td class="item-name-col">放空斷電・好眠耳燭</td>
+         <td>用腦過度、失眠頭痛</td>
+         <td class="price-col">+$300</td>
+         <td class="price-col upgrade-price">+$50 <span class="price-tag">(升級換購)</span></td>
+        </tr>
+        <tr>
+         <td class="item-name-col">平衡溫養・暖腹臍燭</td>
+         <td>宮寒、腸胃蠕動弱</td>
+         <td class="price-col">+$300</td>
+         <td class="price-col upgrade-price">+$50 <span class="price-tag">(升級換購)</span></td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div><!-- 進階呵護系列 -->
+    <div class="upgrade-category">
+     <h3 class="category-title">🔥 進階呵護系列（儀器加強・深層釋放）</h3>
+     <div class="upgrade-table-wrapper">
+      <table class="upgrade-table">
+       <thead>
+        <tr>
+         <th>項目名稱</th>
+         <th>適合對象</th>
+         <th>建議加購價<br><span class="th-sub">(搭配主課程)</span></th>
+         <th>建議換購價<br><span class="th-sub">(替換套餐贈品)</span></th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td class="item-name-col">Q彈律動・美胸律動儀</td>
+         <td>胸型困擾、產後保養</td>
+         <td class="price-col">+$500</td>
+         <td class="price-col upgrade-price">+$250 <span class="price-tag">(升級換購)</span></td>
+        </tr>
+        <tr>
+         <td class="item-name-col">極致體雕・緊緻美體儀 (局部)</td>
+         <td>局部浮腫、線條鬆弛</td>
+         <td class="price-col">+$450</td>
+         <td class="price-col upgrade-price">+$200 <span class="price-tag">(升級換購)</span></td>
+        </tr>
+        <tr>
+         <td class="item-name-col">能量溫潤・舒壓溫熱石 (背部)</td>
+         <td>肩頸背部深度僵硬</td>
+         <td class="price-col">+$400</td>
+         <td class="price-col upgrade-price">+$150 <span class="price-tag">(升級換購)</span></td>
+        </tr>
+        <tr>
+         <td class="item-name-col">排汗輕盈・聚熱暖身袋</td>
+         <td>容易手腳冰冷者</td>
+         <td class="price-col">+$250</td>
+         <td class="price-col free-price">$0 <span class="price-tag">(免費換選)</span></td>
+        </tr>
+        <tr>
+         <td class="item-name-col">爆汗排毒・遠紅外線太空艙</td>
+         <td>代謝循環差、不易流汗</td>
+         <td class="price-col">+$300 <span class="price-tag"></span></td>
+         <td class="price-col upgrade-price">+$50 <span class="price-tag">(升級換購)</span></td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div><!-- 使用範例說明 -->
+    <div class="example-section">
+     <h3 class="example-title">💡 使用範例說明：</h3>
+     <div class="example-cards">
+      <div class="example-card">
+       <div class="example-label">
+        📊 加購情境
+       </div>
+       <div class="example-content">
+        <p class="example-step"><strong>選擇:</strong><span>C. 美型雕塑<br>
+          (60分鐘)</span></p>
+        <p class="example-step"><strong>需求:</strong><span>想加強代謝</span></p>
+        <p class="example-step"><strong>加購:</strong><span>爆汗太空艙 +$300</span></p>
+        <p class="example-result">💰 總價 = $888 + $300<br>
+         = <strong>$1,188</strong></p>
+       </div>
+      </div>
+      <div class="example-card">
+       <div class="example-label">
+        🎁 換購情境（免費）
+       </div>
+       <div class="example-content">
+        <p class="example-step"><strong>選擇:</strong><span>B. 溫罐排濕套餐 (120分鐘)</span></p>
+        <p class="example-step"><strong>原贈品:</strong><span>熱石 + 暖身袋</span></p>
+        <p class="example-step"><strong>需求:</strong><span>容易手腳冰冷</span></p>
+        <p class="example-step"><strong>換購:</strong><span>將「暖身袋」換成「暖芯墊」</span></p>
+        <p class="example-result">✨ 換購價 $0<br><strong>免費更換！</strong></p>
+       </div>
+      </div>
+      <div class="example-card">
+       <div class="example-label">
+        💎 換購情境（補差額）
+       </div>
+       <div class="example-content">
+        <p class="example-step"><strong>選擇:</strong><span>A. 植萃舒壓套餐 (120分鐘)</span></p>
+        <p class="example-step"><strong>原贈品:</strong><span>耳燭 + 熱墊</span></p>
+        <p class="example-step"><strong>需求:</strong><span>想加強背部放鬆</span></p>
+        <p class="example-step"><strong>換購:</strong><span>將「暖芯墊」升級成「能量熱石」</span></p>
+        <p class="example-result">💰 總價 = $1,288 + $150<br>
+         = <strong>$1,438</strong></p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- CTA Section -->
+   <section class="cta-section"><a href="https://lin.ee/eFbDTp5" target="_blank" rel="noopener noreferrer" class="cta-button"> 📅 立即預約 2026 開運時段 </a>
+    <div class="social-links"><a href="https://reurl.cc/j9KxqM" target="_blank" rel="noopener noreferrer" class="social-link"> 追蹤 Instagram 作品集 </a> <a href="https://reurl.cc/j9KLaM" target="_blank" rel="noopener noreferrer" class="social-link"> Facebook 粉絲專頁 </a>
+    </div>
+   </section><!-- Footer -->
+   <footer class="footer">
+    <p class="footer-notice" id="footer-notice">⚠️ 本工作室僅限女性預約。所有服務均為身心放鬆保養,無涉及醫療行為。</p>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      main_title: "可唯美學",
+      subtitle: "2026 新春開運・限定優惠",
+      tagline: "新的一年,把運氣與福氣都揉進身體裡。",
+      about_text: "專注於妳的身體訊號,提供最精準的客製化調理。\n在這裡,不只是按摩,是讓身心重新開機的儀式。",
+      notice: "本工作室僅限女性預約。所有服務均為身心放鬆保養,無涉及醫療行為。",
+      background_color: "#FFF5F5",
+      header_gradient_start: "#FFD6E0",
+      header_gradient_end: "#FFE4EC",
+      primary_color: "#E63946",
+      accent_color: "#D62828",
+      text_color: "#2C2C2C",
+      font_family: "Noto Sans TC",
+      font_size: 16
+    };
+
+    async function onConfigChange(config) {
+      const mainTitle = config.main_title || defaultConfig.main_title;
+      const subtitle = config.subtitle || defaultConfig.subtitle;
+      const tagline = config.tagline || defaultConfig.tagline;
+      const aboutText = config.about_text || defaultConfig.about_text;
+      const notice = config.notice || defaultConfig.notice;
+      
+      const backgroundColor = config.background_color || defaultConfig.background_color;
+      const headerGradientStart = config.header_gradient_start || defaultConfig.header_gradient_start;
+      const headerGradientEnd = config.header_gradient_end || defaultConfig.header_gradient_end;
+      const primaryColor = config.primary_color || defaultConfig.primary_color;
+      const accentColor = config.accent_color || defaultConfig.accent_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      
+      const customFont = config.font_family || defaultConfig.font_family;
+      const baseFontStack = "'PingFang TC', 'Microsoft JhengHei', sans-serif";
+      
+      const baseSize = config.font_size || defaultConfig.font_size;
+
+      document.getElementById('main-title').textContent = mainTitle;
+      document.getElementById('subtitle').textContent = subtitle;
+      document.getElementById('tagline').textContent = tagline;
+      document.getElementById('about-text').innerHTML = aboutText.replace(/\n/g, '<br>');
+      document.getElementById('footer-notice').textContent = '⚠️ ' + notice;
+
+      document.body.style.background = backgroundColor;
+      document.body.style.color = textColor;
+      
+      const header = document.querySelector('.header');
+      header.style.background = `linear-gradient(135deg, ${headerGradientStart} 0%, ${headerGradientEnd} 100%)`;
+      
+      const mainTitleEl = document.querySelector('.main-title');
+      mainTitleEl.style.color = primaryColor;
+      
+      const subtitleEl = document.querySelector('.subtitle');
+      subtitleEl.style.color = accentColor;
+      
+      const fullPackage = document.querySelector('.full-package');
+      fullPackage.style.background = `linear-gradient(135deg, ${headerGradientStart} 0%, ${headerGradientEnd} 100%)`;
+      
+      const sectionTitles = document.querySelectorAll('.section-title');
+      sectionTitles.forEach(title => {
+        title.style.color = primaryColor;
+      });
+      
+      const addonTitle = document.querySelector('.addon-title');
+      addonTitle.style.color = primaryColor;
+      
+      const addonText = document.querySelector('.addon-text');
+      addonText.style.color = accentColor;
+      
+      const upgradeTitle = document.querySelector('.upgrade-title');
+      upgradeTitle.style.color = primaryColor;
+
+      const categoryTitles = document.querySelectorAll('.category-title');
+      categoryTitles.forEach(title => {
+        title.style.color = primaryColor;
+      });
+
+      const exampleTitle = document.querySelector('.example-title');
+      exampleTitle.style.color = primaryColor;
+
+      const exampleLabels = document.querySelectorAll('.example-label');
+      exampleLabels.forEach(label => {
+        label.style.color = primaryColor;
+      });
+      
+      const ctaButtons = document.querySelectorAll('.cta-button');
+      ctaButtons.forEach(button => {
+        button.style.background = `linear-gradient(135deg, ${primaryColor}, ${accentColor})`;
+      });
+      
+      const socialLinks = document.querySelectorAll('.social-link');
+      socialLinks.forEach(link => {
+        link.style.borderColor = primaryColor;
+        link.style.color = primaryColor;
+      });
+
+      document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      
+      document.querySelector('.main-title').style.fontSize = `${baseSize * 3}px`;
+      document.querySelector('.subtitle').style.fontSize = `${baseSize * 1.75}px`;
+      document.querySelector('.tagline').style.fontSize = `${baseSize * 1.0625}px`;
+      document.querySelector('.about-text').style.fontSize = `${baseSize * 1.125}px`;
+      
+      document.querySelectorAll('.section-title').forEach(el => {
+        el.style.fontSize = `${baseSize * 2}px`;
+      });
+      
+      document.querySelectorAll('.item-name').forEach(el => {
+        el.style.fontSize = `${baseSize * 1.375}px`;
+      });
+      
+      document.querySelector('.cta-button').style.fontSize = `${baseSize * 1.375}px`;
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => config.header_gradient_start || defaultConfig.header_gradient_start,
+            set: (value) => {
+              config.header_gradient_start = value;
+              window.elementSdk.setConfig({ header_gradient_start: value });
+            }
+          },
+          {
+            get: () => config.primary_color || defaultConfig.primary_color,
+            set: (value) => {
+              config.primary_color = value;
+              window.elementSdk.setConfig({ primary_color: value });
+            }
+          },
+          {
+            get: () => config.accent_color || defaultConfig.accent_color,
+            set: (value) => {
+              config.accent_color = value;
+              window.elementSdk.setConfig({ accent_color: value });
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              window.elementSdk.setConfig({ text_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => {
+            config.font_family = value;
+            window.elementSdk.setConfig({ font_family: value });
+          }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (value) => {
+            config.font_size = value;
+            window.elementSdk.setConfig({ font_size: value });
+          }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["main_title", config.main_title || defaultConfig.main_title],
+        ["subtitle", config.subtitle || defaultConfig.subtitle],
+        ["tagline", config.tagline || defaultConfig.tagline],
+        ["about_text", config.about_text || defaultConfig.about_text],
+        ["notice", config.notice || defaultConfig.notice]
+      ]);
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ba540e6402da9c2',t:'MTc2NzgwNzc2Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
